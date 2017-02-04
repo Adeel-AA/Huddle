@@ -4,7 +4,19 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - settings
+  - ui
   - Sheep
+  - Pause
+  - rBox
+  - bBox
+  - yBox
+  - HrBox
+  - HbBox
+  - HyBox
+  - Path
+  - Shelf
+  - Player
   layers:
   - Default
   - TransparentFX
@@ -15,17 +27,17 @@ TagManager:
   - 
   - 
   - Walls
-  - Players
+  - WHouseHole
   - Sheep
   - SheepCirc
   - collisionDetect
+  - BoxP1
+  - BoxP2
+  - Player1
+  - Player2
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - HeavyBox
+  - Box_Small
   - 
   - 
   - 

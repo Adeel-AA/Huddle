@@ -14,7 +14,7 @@ public class SheepColide : MonoBehaviour {
 
 	public static ArrayList sheepIn{get;set;}// sheep registered in the array
 
-	public Text counter;// UI element text the counter board
+	private Text counter;// UI element text the counter board
 
 	public static ArrayList namesToStrike {get;set;} // sheep objects that shouldn't trigger the counter since they're alreay in the pen
 
@@ -31,7 +31,7 @@ public class SheepColide : MonoBehaviour {
 	void Start (){
 
 		
-
+		counter = GameObject.Find ("Text (1)").GetComponent <Text>();
 		sheepIn = new ArrayList ();//array list for the sheep to store the once they're in
 
 		namesToStrike = new ArrayList();

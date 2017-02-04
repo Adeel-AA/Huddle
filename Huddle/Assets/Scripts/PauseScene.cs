@@ -2,50 +2,57 @@
 using System.Collections;
 using UnityEngine.UI;
 
-
-public class PauseScene : MonoBehaviour {
+/*
+ *  update instead of set Active use local scale ...
+ * */
+public class PauseScene :MonoBehaviour  {
 	private bool Pressed; // boolean to keep track of the button press or key trigger
-	public GameObject Settings; // the settings panel that contains the buttons
-	public GameObject backUi;//the ingame ui present
+	private static GameObject Settings; // the settings panel that contains the buttons
+	private static GameObject backUi;//the ingame ui present
 	// Use this for initialization
 	/*
 	* constructor initiates the pressed values false since no button is pressed and sets the setting to dissapear as it isn't required
 	*/
 	void Start () {
 		Pressed = false;
-		Settings.SetActive(false);
+		Settings = GameObject.Find ("Settings");
+
+		backUi = GameObject.Find ("UI_INGAME");
+		Settings.transform.localScale = new Vector3 (0, 0, 0);
+
 	}
 /*
 * checks if the setting has been pressed if it is invoked then the game is paused and settings appear and the ingame ui dissapears
 * the settings is a translucent panel so users will see the settings but they will not see the huddle count and the pause button
 */
-	private void settingsButton(){
+	private  void settingsButton(){
 		if (Pressed == false) {
 			Time.timeScale = 0;
 			Pressed = true;
-			Settings.SetActive(true);
-			backUi.SetActive (false);
+			Settings.transform.localScale = new Vector3 (1, 1, 1);
+			backUi.transform.localScale = new Vector3 (0, 0, 0);
 		} else {
 			Time.timeScale = 1;
 			Pressed = false;
-			Settings.SetActive(false);
-			backUi.SetActive (true);
+			Settings.transform.localScale = new Vector3 (0, 0, 0);
+			backUi.transform.localScale = new Vector3 (1, 1, 1);
+
 
 		}
 	}
 
-	public void pressSettings () {
-		Time.timeScale = 0;  // slows the game criplingly so it auses
-		Settings.SetActive (true); // shows the settings panel
-		backUi.SetActive (false); // gets rid of the ingame ui 
+	public  void pressSettings () {
+		Time.timeScale = 0;  // slows the game criplingly so it pauses
+		Settings.transform.localScale = new Vector3 (1, 1, 1);
+		backUi.transform.localScale = new Vector3 (0, 0, 0); // gets rid of the ingame ui 
 
 	}
     /*
     * resumes game back to current state
     */
 	public void Resume (){
-		Settings.SetActive (false); // gets rid of the settings panel 
-		backUi.SetActive (true); // brings back the ui for the game like pause button and huddle counter
+		Settings.transform.localScale = new Vector3 (0, 0, 0); // gets rid of the settings panel 
+		backUi.transform.localScale = new Vector3 (1,1,1); // brings back the ui for the game like pause button and huddle counter
 		Time.timeScale = 1; // brings game back to realtime speed
 
 	}
@@ -60,14 +67,14 @@ public class PauseScene : MonoBehaviour {
 			if (Pressed == false){
 			Time.timeScale = 0;
 				Pressed = true; // since we pressed the escape key then it changes the boolean so that when escape is pressed again it goes back to game rather than stay in settings
-				Settings.SetActive (true);
-				backUi.SetActive (false);
+				Settings.transform.localScale = new Vector3 (1, 1, 1);
+				backUi.transform.localScale = new Vector3 (0, 0, 0);
 			}
 			else {
 				Time.timeScale = 1; 
 				Pressed = false;
-				Settings.SetActive(false);
-				backUi.SetActive(true);
+				Settings.transform.localScale = new Vector3 (0, 0, 0);
+				backUi.transform.localScale = new Vector3 (1, 1, 1);
 			}
 		}
 
