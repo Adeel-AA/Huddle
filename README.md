@@ -3,10 +3,14 @@
 
 Huddle is an exciting puzzle and strategy game where, as a shepherd, you must herd rebellious sheep into a pen whilst overcoming obstacles, losing as few sheep as possible along the way!
 
-Additional themes to be implemented.
 
 Warehouse theme added.
 
+
+Additional themes to be implemented.
+
+
+.gitignore is now properly implemented, when the project is executed the auto-generated files such as .meta and temp from Unity and C# are successfully ignored.
 
 
 ## Code Example
