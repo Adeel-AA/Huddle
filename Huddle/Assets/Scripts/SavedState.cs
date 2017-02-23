@@ -1,61 +1,69 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+using System.Data;
 using System.IO;
-using System.Diagnostics;
 using System;
 
-public class SavedState : MonoBehaviour {
-	private static int LevelsCompleted{ get; set;}
-	public static string CurrentScore { get; set;}
-	public static string saveFile = Application.dataPath + "/SaveFiles/";
-	public static Dictionary <string,int> playerLog;
+public class SavedState {
+	private  DataTable table;
+	private DataSet ds;
 
 
-	public static void FlushDataToSave(String LevelName){
-		
 
-		File.WriteAllText ((saveFile + LevelName + ".txt"), CurrentScore);
-			
 
-			
 
-		
 
+	public SavedState () {
+		table = new DataTable ();
+		ds = new DataSet ();
+		ds.Tables.Add (table);
+		CreateTable ();
+
+	}
+	private void CreateTable(){
+		table.Columns.Add ("Name", typeof(string));
+		table.Columns.Add ("Level", typeof(int));
+		table.Columns.Add ("Score",typeof(int));
 
 	}
 
-
-	public static void levelsCount(){
-		int fileCount = Directory.GetFiles (saveFile, "*.txt", SearchOption.TopDirectoryOnly).Length;
-		LevelsCompleted = fileCount;
-
-	}
-
-	public static void readSave() {
-		playerLog = new Dictionary <string,int> ();
-		levelsCount ();
-		string amountOfLevels = "" + LevelsCompleted;
-		File.WriteAllText (Application.dataPath+"/DebugSave/levels.txt", amountOfLevels+" levels are there and counted"); // debug to see if it's actually counting levels
-		string[] levelNamescurrent = Directory.GetFiles (saveFile,"*.txt", SearchOption.TopDirectoryOnly);
-		File.WriteAllText (Application.dataPath+"/DebugSave/arrayLevelNames.txt", levelNamescurrent.Length+" levels are there and counted");
-		if (levelNamescurrent != null) {
-			for (int i = 0; i < levelNamescurrent.Length; i++) {
-				using (StreamReader stream = new StreamReader (levelNamescurrent [i])) {
-					String line = stream.ReadLine ();
-					int score = int.Parse (line);
-					playerLog.Add ("Level "+(i+1), score);
+	public void flushSave (string playerName,int level, int score) {
+		try {ds.ReadXml (Application.dataPath + "/SaveFiles/save.xml");
+			// clears table of any level duplicates 
+			for (int i = 0; i < ds.Tables [0].Rows.Count; i++) {
+				if (ds.Tables [0].Rows [i] ["Name"].ToString ().Equals (playerName) && ds.Tables [0].Rows [i] ["Level"].Equals(level)) {
+					ds.Tables [0].Rows [i].Delete ();
 
 				}
+		
+		}
+		}
+		catch (Exception e) {
+
+		}
+
+			table.Rows.Add (playerName, level, score);
+			ds.Merge (table);
+
+
+		ds.WriteXml (Application.dataPath + "/SaveFiles/save.xml");
+
+	}
+
+	// need to implement this too tiered today lol
+	public void readSave () {
+
+	}
+
+
+	public int getLevelAmount (string player_Name){
+		int counter = 0;
+		foreach (DataRow row in table.Rows) {
+			if (row["Name"].Equals(player_Name)) {
+				counter ++;
 
 			}
 		}
-
-	}
-
-	public int findSaveScore(string levelName){
-		return 0;
-
+		return counter;
 	}
 
 

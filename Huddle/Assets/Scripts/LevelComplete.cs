@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System;
 /*
 * class in charge of checking the winning condition of the game and checks if the player collected all the sheep in the pen
 */
@@ -13,14 +14,17 @@ public class LevelComplete : MonoBehaviour {
 	public static List <string> Boxes {get;set;}
 	private int SceneType; // the theme type of the game 1 is sheep 2 is ware house ... etc
 	public static int bigBoxCount {get;set;}
-	private int score;// score for the level will have a default value untill we implement it...
-	public int isTimed; // sets if the level is a timed one
+	private Player player1;
+	private Player player2; // haven't figured out multi profiles yet so just keeping this till i figure it out
+	private SavedState saveGame;
+	public bool isTimed;
 
 
 	// Use this for initialization
-	
+
 	void Start () {
-		
+		saveGame = new SavedState ();
+		player1 = new Player ("player 1");
 		allObj = FindObjectsOfType(typeof(GameObject)) as GameObject[];
 		sheep = new ArrayList ();
 		Boxes = new List <string> ();
@@ -34,10 +38,18 @@ public class LevelComplete : MonoBehaviour {
 			bigBoxCount = 100;
 
 		}
-		score = 20;
 
-	
 	}
+	#region score manager
+	private void Addscore () {
+		int score = SheepColide.count * 5;
+		player1.setScore (score);
+	}
+
+	private void flushScore() {
+		saveGame.flushSave (player1.getName(), SceneManager.GetActiveScene().buildIndex, player1.getCurrentScore ());
+	}
+	#endregion
 	#region ArrayList Operations
 	/*
 	* adds only the sheep object from the dirty arrayList which contains all the objects
@@ -77,11 +89,7 @@ public class LevelComplete : MonoBehaviour {
 	/*
 	 * adds the score to the game
 	 * */
-	private void ScoreFlusher() {
-		SavedState.CurrentScore =score.ToString();
-		SavedState.FlushDataToSave (SceneManager.GetActiveScene ().name);
 
-	}
 	#endregion
 	#region EvenManagers
 	/*
@@ -90,7 +98,10 @@ public class LevelComplete : MonoBehaviour {
 	private void SceneLoader(){
 		int current = SceneManager.GetActiveScene ().buildIndex;
 		current = current + 1;
-		SceneManager.LoadScene (current);
+		try {SceneManager.LoadScene (current);} 
+		catch (Exception e) {
+			
+		}
 
 	}
 	/*
@@ -106,7 +117,7 @@ public class LevelComplete : MonoBehaviour {
 	#region winning
 	private void SheepDone() {
 		if (sheep.Count == SheepColide.count) {
-			ScoreFlusher ();
+			flushScore ();
 			SceneLoader ();
 
 		} else {
@@ -115,9 +126,9 @@ public class LevelComplete : MonoBehaviour {
 	}
 
 	private void winningConditionSheep() {
-		if (isTimed == 0) {
+		if (isTimed == false) {
 			SheepDone ();
-		} else if (isTimed == 1) {
+		} else if (isTimed == true) {
 			if (Timer.time == 0) {
 				Debug.Log ("Try again");
 				reloadScene ();
@@ -153,7 +164,7 @@ public class LevelComplete : MonoBehaviour {
 
 
 		else if (bigBoxCount==0) {
-			ScoreFlusher ();
+			flushScore();
 			SceneLoader();
 			Debug.Log ("level has ended!");
 
@@ -168,7 +179,7 @@ public class LevelComplete : MonoBehaviour {
 	* triggered every frame compares the sheep in the current scene to the sheep in the pen if theyre equal then user wins and level is progressed
 	*/
 	void Update () {
-		
+		Addscore ();
 		if (SceneType == 1) {
 			winningConditionSheep ();
 		} 
