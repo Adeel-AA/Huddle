@@ -13,11 +13,11 @@ public class LevelComplete : MonoBehaviour {
 	public static ArrayList sheep{get;set;} // all active sheep on scene needs to be static and public in order to be modified by other classes incase sheep escape game boundaries
 	public static List <string> Boxes {get;set;}
 	private int SceneType; // the theme type of the game 1 is sheep 2 is ware house ... etc
-	public static int bigBoxCount {get;set;}
+	public static int bigBoxCount;
 	private Player player1;
 	private Player player2; // haven't figured out multi profiles yet so just keeping this till i figure it out
 	private SavedState saveGame;
-	public bool isTimed;
+
 
 
 	// Use this for initialization
@@ -28,7 +28,7 @@ public class LevelComplete : MonoBehaviour {
 		allObj = FindObjectsOfType(typeof(GameObject)) as GameObject[];
 		sheep = new ArrayList ();
 		Boxes = new List <string> ();
-		if (GameObject.FindGameObjectWithTag ("HrBox") != null) {
+		if (GameObject.FindGameObjectWithTag ("bBox") != null) {
 			addBoxesToArrayList ();
 			SceneType = 2;
 			bigBoxCount = Boxes.Count / 3; // big boxes is the winning condition of the game... since 3 boxes are required so we can just deduce the count
@@ -126,44 +126,21 @@ public class LevelComplete : MonoBehaviour {
 	}
 
 	private void winningConditionSheep() {
-		if (isTimed == false) {
-			SheepDone ();
-		} else if (isTimed == true) {
-			if (Timer.time == 0) {
-				Debug.Log ("Try again");
-				reloadScene ();
-
-			} else {
+		
+			
 				SheepDone ();
-			}
+			
 
 		}
 
 
-	}
+
 	/**
 	 * winning condition warehouse
 	 * */
 	private void winningConditionWareHouse() {
-		if (Boxes.Count == 3) {
-			if (Boxes [0].Equals (Boxes [1]) && Boxes [0].Equals (Boxes [2])) {
-				Debug.Log ("finish the round !");
-
-			} else if (Boxes.Count == 2) {
-				Debug.Log ("two boxes left go on finish the round");
-			}
-			else {
-
-				SceneLoader();
-
-
-			}
-
-
-		}
-
-
-		else if (bigBoxCount==0) {
+		
+		if (bigBoxCount==0) {
 			flushScore();
 			SceneLoader();
 			Debug.Log ("level has ended!");
@@ -180,13 +157,17 @@ public class LevelComplete : MonoBehaviour {
 	*/
 	void Update () {
 		Addscore ();
+
 		if (SceneType == 1) {
 			winningConditionSheep ();
 		} 
 		else if (SceneType == 2) {
-			winningConditionWareHouse ();
+			 
+					winningConditionWareHouse (); //winning condition doesn't work someone familiar with the condition must pseudo code it ...
+				
+			}
 
 		}
 	}
-			}
+			
 

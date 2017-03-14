@@ -7,7 +7,12 @@
   </Table1>
   <Table1>
     <Name>player 1</Name>
+    <Level>9</Level>
+    <Score>0</Score>
+  </Table1>
+  <Table1>
+    <Name>player 1</Name>
     <Level>3</Level>
-    <Score>10</Score>
+    <Score>0</Score>
   </Table1>
 </NewDataSet>
