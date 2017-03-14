@@ -80,7 +80,8 @@ public class SheepColide : MonoBehaviour {
 
 				namesToStrike.Add (Sheep.gameObject.transform.name); // adds the sheep to the collection to make sure if the sheep triggeres the sensor from within the coutner again it will not register as a new sheeep
 
-
+				SheepBehave behave = Sheep.GetComponent <SheepBehave> ();
+				behave.isInPen = true;
 
 				count++; // increases the count by 1 since new sheep came in
 

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using System;
+	using System;
 /*
  * Class Takes care of sheep behaviour
  * */
@@ -12,6 +12,7 @@ public class SheepBehave : MonoBehaviour {
 	private GameObject player1; // player 1 
 	private GameObject player2; // player 2 
 	public float speed; // movement speed of the sheep
+	public  bool isInPen {get;set;}
 	/*
 	 * intiatlizes the list and the players in the scene and set the intial speed and distance threshehold
 	 * */
@@ -22,6 +23,7 @@ public class SheepBehave : MonoBehaviour {
 		player2 = GameObject.Find ("Player2");
 		speed = (float) 5;
 		DistanceThreshold = 10;
+		isInPen = false;
 	}
 	/*
 	 * adds Path Objects related to the scene
@@ -34,6 +36,7 @@ public class SheepBehave : MonoBehaviour {
 		}
 
 	}
+
 	/**
 	 * Index Generator for the 
 	 * */
@@ -88,11 +91,15 @@ public class SheepBehave : MonoBehaviour {
 	 * update function runs the proximity function and generates random movement for the atttached objects
 	 * */
 	void Update() {
-		if (isClose() != true) {
-			RandomMovement ();
-
+		if (isInPen == true) {
+			// does nothing 
 		} else {
-			Debug.Log ("Run Sheep Run!");
+			if (isClose () != true) {
+				RandomMovement ();
+
+			} else {
+				Debug.Log ("Run Sheep Run!");
+			}
 		}
 	}
 }
