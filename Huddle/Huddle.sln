@@ -1,7 +1,7 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Huddle", "Assembly-CSharp.csproj", "{F958001C-C0BD-D619-9FB5-5C4EC08549FE}"
+# Visual Studio 2008
+
+Project("{254BA08B-A2EE-C730-9C10-051E57D9DB21}") = "Huddle", "Assembly-CSharp.csproj", "{F958001C-C0BD-D619-9FB5-5C4EC08549FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

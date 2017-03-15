@@ -22,16 +22,17 @@
       <File FileName="Assets\Scripts\WhouseShelf.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Test.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\StateRead.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SheepColide.cs" Line="57" Column="11" />
+      <File FileName="Assets\Scripts\SheepColide.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\SavedState.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\CompletedLogger.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Player1Script.cs" Line="40" Column="2" />
-      <File FileName="Assets\Scripts\Player2Script.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SheepBehave.cs" Line="15" Column="8" />
+      <File FileName="Assets\Scripts\Player1Script.cs" Line="9" Column="1" />
+      <File FileName="Assets\Scripts\Player2Script.cs" Line="25" Column="3" />
+      <File FileName="Assets\Scripts\SheepBehave.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Player.cs" Line="1" Column="1" />
       <File FileName="Assets\SaveFiles\save.xml" Line="1" Column="1" />
       <File FileName="Assets\BigBoxesCount.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Timer.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Boundary_Warehouse.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -13,7 +13,11 @@ public class Player1Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+		if (isboxStuck != false) {
+			if (Input.GetKey (KeyCode.Space)) {
+				boxStuck = null;
+			}
+		}
         float inputX = Input.GetAxis("Horizontal");
         float inputY = Input.GetAxis("Vertical");
 
@@ -30,12 +34,16 @@ public class Player1Script : MonoBehaviour
 	void OnCollisionEnter2D(Collision2D box) {
 
 		 
-		if (box.gameObject.layer == 18 || box.gameObject.layer == 19) {
+		if (box.gameObject.layer == 13 || box.gameObject.layer == 19) {
+			
 				Debug.Log ("the correct box is here");
 				isboxStuck = true;
 				boxStuck = box;
+
+	
         }
 		}
+
 
 
 }
