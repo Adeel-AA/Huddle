@@ -6,6 +6,7 @@ using System;
 public class SavedState {
 	private  DataTable table;
 	private DataSet ds;
+	private static string savefile = Application.dataPath + "/SaveFiles/save.xml";
 
 
 
@@ -27,7 +28,7 @@ public class SavedState {
 	}
 
 	public void flushSave (string playerName,int level, int score) {
-		try {ds.ReadXml (Application.dataPath + "/SaveFiles/save.xml");
+		try {ds.ReadXml (savefile);
 			// clears table of any level duplicates 
 			for (int i = 0; i < ds.Tables [0].Rows.Count; i++) {
 				if (ds.Tables [0].Rows [i] ["Name"].ToString ().Equals (playerName) && ds.Tables [0].Rows [i] ["Level"].Equals(level)) {
@@ -51,6 +52,10 @@ public class SavedState {
 
 	// need to implement this too tiered today lol
 	public void readSave () {
+		try { ds.ReadXml (Application.dataPath +savefile); }
+		catch (Exception e) {}
+
+
 
 	}
 
