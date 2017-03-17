@@ -2890,4 +2890,9 @@
     <Level>5</Level>
     <Score>0</Score>
   </Table1>
+  <Table1>
+    <Name>player 1</Name>
+    <Level>7</Level>
+    <Score>0</Score>
+  </Table1>
 </NewDataSet>
