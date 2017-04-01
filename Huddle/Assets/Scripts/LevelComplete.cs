@@ -75,7 +75,7 @@ public class LevelComplete : MonoBehaviour {
 			}
 
 		}
-		Debug.Log (Boxes.Count);
+		//Debug.Log (Boxes.Count);
 
 	}
 	/*
@@ -121,7 +121,7 @@ public class LevelComplete : MonoBehaviour {
 			SceneLoader ();
 
 		} else {
-			Debug.Log ("Didn't CatchThemAll");
+			//Debug.Log ("Didn't CatchThemAll");
 		}
 	}
 
@@ -143,7 +143,7 @@ public class LevelComplete : MonoBehaviour {
 		if (bigBoxCount==0) {
 			flushScore();
 			SceneLoader();
-			Debug.Log ("level has ended!");
+			//Debug.Log ("level has ended!");
 
 		}
 

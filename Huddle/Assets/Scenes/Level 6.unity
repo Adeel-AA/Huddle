@@ -938,15 +938,15 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1143919176}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4000010843461118, guid: ab32ec8e9415e1c4c9507765bc3cbf52, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -260.89172
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000010843461118, guid: ab32ec8e9415e1c4c9507765bc3cbf52, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -148.22638
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000010843461118, guid: ab32ec8e9415e1c4c9507765bc3cbf52, type: 2}
       propertyPath: m_LocalPosition.z
@@ -970,7 +970,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010843461118, guid: ab32ec8e9415e1c4c9507765bc3cbf52, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 114000012960086342, guid: ab32ec8e9415e1c4c9507765bc3cbf52,
         type: 2}
@@ -979,11 +979,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010843461118, guid: ab32ec8e9415e1c4c9507765bc3cbf52, type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.81528664
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4000010843461118, guid: ab32ec8e9415e1c4c9507765bc3cbf52, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.81528664
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab32ec8e9415e1c4c9507765bc3cbf52, type: 2}
@@ -1035,11 +1035,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4000011749161302, guid: c1ed0a0865e31c247a381dd9a14ea258,
     type: 2}
   m_PrefabInternal: {fileID: 1126837256}
---- !u!224 &1143919176 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 224000011540774996, guid: 6e289e111ad6f1c4098f541c3c21d1c8,
-    type: 2}
-  m_PrefabInternal: {fileID: 1145767949}
 --- !u!1001 &1145767949
 Prefab:
   m_ObjectHideFlags: 0

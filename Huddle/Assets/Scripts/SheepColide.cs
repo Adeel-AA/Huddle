@@ -50,7 +50,7 @@ public class SheepColide : MonoBehaviour {
 
 		bool strike=false;
 
-		Debug.Log ("enter Collision");
+		//Debug.Log ("enter Collision");
 
 		if (Sheep.gameObject.layer==10) { // layer 10 is where all sheep reside
 
@@ -58,7 +58,7 @@ public class SheepColide : MonoBehaviour {
 
 				if (namesToStrike [i].Equals (Sheep.gameObject.transform.name)) { // checks if the object that collided with the sensor didnt collide with it before while inside the pen
 
-					Debug.Log ("sheep don't register");
+					//Debug.Log ("sheep don't register");
 
 					strike = true;
 
@@ -74,7 +74,7 @@ public class SheepColide : MonoBehaviour {
 
 			if (strike == false) { // if the object is new and didn't exist it will declare new sheep
 
-				Debug.Log ("new sheep came in");
+				//Debug.Log ("new sheep came in");
 
 				sheepIn.Add (Sheep); // adds te sheep to the pen 
 
@@ -89,7 +89,7 @@ public class SheepColide : MonoBehaviour {
 
 			} else {
 
-				Debug.Log ("no sheep registry");
+				//Debug.Log ("no sheep registry");
 
 
 

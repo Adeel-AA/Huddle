@@ -11,10 +11,10 @@ public class LoadBay_Red : MonoBehaviour {
 		if (box.gameObject.tag.Equals ("HrBox")) {
 			LevelComplete.bigBoxCount = LevelComplete.bigBoxCount - 1;
 			box.gameObject.SetActive (false);
-			Debug.Log ("Remaining Big Boxes to Complete Round" + LevelComplete.bigBoxCount);
+			//Debug.Log ("Remaining Big Boxes to Complete Round" + LevelComplete.bigBoxCount);
 
 		} else {
-			Debug.Log ("wrong form of box entered in the parameter");
+			//Debug.Log ("wrong form of box entered in the parameter");
 
 		}
 	}

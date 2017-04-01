@@ -40,7 +40,7 @@ public class BoxGenerator : MonoBehaviour {
 		}
 			else {
 
-						Debug.Log ("Not a valid object");
+						//Debug.Log ("Not a valid object");
 					}
 
 	}
@@ -50,7 +50,7 @@ public class BoxGenerator : MonoBehaviour {
 	private void caseRed(Collider2D box){
 		
 			if (counter_blue > 0 || counter_yellow > 0) {
-				Debug.Log ("incorrect box !");
+				//Debug.Log ("incorrect box !");
 			} else {
 				counter_red = counter_red + 1;
 			box.gameObject.SetActive (false);
@@ -63,7 +63,7 @@ public class BoxGenerator : MonoBehaviour {
 	private void caseBlue(Collider2D box){
 			
 				if (counter_red > 0 || counter_yellow > 0) {
-					Debug.Log ("incorrect box");
+					//Debug.Log ("incorrect box");
 				} 
 				else {
 					counter_blue = counter_blue + 1;
@@ -78,7 +78,7 @@ public class BoxGenerator : MonoBehaviour {
 	private void caseYellow(Collider2D box){
 		
 			if (counter_red > 0 || counter_blue > 0) {
-				Debug.Log ("incorrect box!");
+				//Debug.Log ("incorrect box!");
 			} else {
 				counter_yellow = counter_yellow + 1;
 				box.gameObject.SetActive (false);
@@ -106,7 +106,7 @@ public class BoxGenerator : MonoBehaviour {
 			GameObject box_y = GameObject.Instantiate (Resources.Load("Objects/HBox_Yellow"), new Vector3 (10, 23, 0), Quaternion.identity) as GameObject ;
 
 		} else {
-			Debug.Log ("you hven't picked a proper color");
+			//Debug.Log ("you hven't picked a proper color");
 		}
 
 	}

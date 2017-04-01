@@ -46,9 +46,9 @@ public class WhouseShelf : MonoBehaviour {
 	void OnCollisionEnter2D(BoxCollider2D player) {
 		if (player.gameObject.layer == 15 || player.gameObject.layer == 16) {
 			createBox ();
-			Debug.Log ("create box");
+			//Debug.Log ("create box");
 		} else {
-			Debug.Log ("a box was not created");
+			//Debug.Log ("a box was not created");
 		}
 	}
 	// Update is called once per frame

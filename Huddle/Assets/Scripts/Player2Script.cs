@@ -5,6 +5,8 @@ public class Player2Script : MonoBehaviour
 {
 
     public Vector2 speed = new Vector2(50, 50);
+	private bool isboxStuck;
+	private Collision2D boxStuck;
 
     // Update is called once per frame
     void Update()
@@ -19,4 +21,15 @@ public class Player2Script : MonoBehaviour
 
         transform.Translate(movement);
     }
+
+	// drag object
+	void OnCollisionEnter2D(Collision2D box) {
+
+
+		if (box.gameObject.layer == 18 || box.gameObject.layer == 19) {
+			//Debug.Log ("the correct box is here");
+			isboxStuck = true;
+			boxStuck = box;
+		}
+	}
 }

@@ -66,7 +66,7 @@ public class SheepBehave : MonoBehaviour {
 		}
 		catch (ArgumentOutOfRangeException e){
 
-			Debug.Log ("Winning Condition of the game");
+			//Debug.Log ("Winning Condition of the game");
 
 		}
 
@@ -78,7 +78,7 @@ public class SheepBehave : MonoBehaviour {
 	 * */
 	private bool isClose() {
 		if (Vector2.Distance (transform.position, player1.transform.position) <=DistanceThreshold || Vector2.Distance (transform.position, player2.transform.position)<=DistanceThreshold) {
-			Debug.Log ("Resume Normal Sheep Behaviour");
+			//Debug.Log ("Resume Normal Sheep Behaviour");
 			return true;
 
 		} else{
@@ -98,7 +98,7 @@ public class SheepBehave : MonoBehaviour {
 				RandomMovement ();
 
 			} else {
-				Debug.Log ("Run Sheep Run!");
+				//Debug.Log ("Run Sheep Run!");
 			}
 		}
 	}

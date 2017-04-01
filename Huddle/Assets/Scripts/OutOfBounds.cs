@@ -13,7 +13,7 @@ public class OutOfBounds : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D Sheep) {
 		if (Sheep.gameObject.layer == 10) {
 			LevelComplete.sheep.Remove (Sheep.gameObject.transform.name);
-			Debug.Log ("Sheep have left bound goodbye!"+LevelComplete.sheep.Count+"left");
+			//Debug.Log ("Sheep have left bound goodbye!"+LevelComplete.sheep.Count+"left");
 			Sheep.gameObject.SetActive (false);
 
 

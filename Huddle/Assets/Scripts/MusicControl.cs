@@ -18,10 +18,10 @@ public class MusicControl : MonoBehaviour {
 	public void ToggleSfx() {
 		if (sfx.mute == false) {
             sfx.mute=true;
-            Debug.Log("you've muted the sound effects");
+            //Debug.Log("you've muted the sound effects");
 		} else {
             sfx.mute = false;
-            Debug.Log("unmuted the sound effects");
+           // Debug.Log("unmuted the sound effects");
 		}
 	}
 /*
@@ -30,11 +30,11 @@ public class MusicControl : MonoBehaviour {
 	public void ToggleMusic(){
 		if (music.mute == false) {
 			music.mute=true;
-            Debug.Log("you've muted the music");
+           // Debug.Log("you've muted the music");
 		}
 			else {
 			music.mute= false;
-            Debug.Log("you've unmuted the music");
+            //Debug.Log("you've unmuted the music");
 			}
 		}
     /*

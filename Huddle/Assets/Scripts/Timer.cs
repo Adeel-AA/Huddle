@@ -13,7 +13,7 @@ public class Timer : MonoBehaviour{
 		if (isTimed != false) {
 			timer = GameObject.Find ("Timer_Counter").GetComponent<Text> ();
 		} else {
-			Debug.Log ("not timed");
+			//Debug.Log ("not timed");
 		}
 	}
 	

@@ -31,7 +31,7 @@ public class Player1Script : MonoBehaviour
 
 		 
 		if (box.gameObject.layer == 18 || box.gameObject.layer == 19) {
-				Debug.Log ("the correct box is here");
+				//Debug.Log ("the correct box is here");
 				isboxStuck = true;
 				boxStuck = box;
         }
