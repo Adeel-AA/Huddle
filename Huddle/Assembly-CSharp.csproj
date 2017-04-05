@@ -46,7 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\BigBoxesCount.cs" />
+     <Compile Include="Assets\Scripts\BigBoxesCount.cs" />
      <Compile Include="Assets\Scripts\Boundary_Warehouse.cs" />
      <Compile Include="Assets\Scripts\BoxGenerator.cs" />
      <Compile Include="Assets\Scripts\BoxP1.cs" />
@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\HoleCollider.cs" />
      <Compile Include="Assets\Scripts\InGameSettings.cs" />
      <Compile Include="Assets\Scripts\LevelComplete.cs" />
+     <Compile Include="Assets\Scripts\LevelLock.cs" />
      <Compile Include="Assets\Scripts\LoadBay_Blue.cs" />
      <Compile Include="Assets\Scripts\LoadBay_Red.cs" />
      <Compile Include="Assets\Scripts\LoadBay_Yellow.cs" />
@@ -73,10 +74,11 @@
      <Compile Include="Assets\Scripts\StateRead.cs" />
      <Compile Include="Assets\Scripts\Test.cs" />
      <Compile Include="Assets\Scripts\Timer.cs" />
+     <Compile Include="Assets\Scripts\Ui_Level_Select.cs" />
+     <Compile Include="Assets\Scripts\Ui_Main_Menu.cs" />
      <Compile Include="Assets\Scripts\Ui_Referencer.cs" />
      <Compile Include="Assets\Scripts\WhouseShelf.cs" />
-     <Compile Include="Assets\Ui_Main_Menu.cs" />
-     <None Include="Assets\SaveFiles\save.xml" />
+     <None Include="Assets\Resources\SaveFiles\save.xml" />
      <None Include="Assets\DebugSave\levels.txt" />
      <None Include="Assets\DebugSave\arrayLevelNames.txt" />
  <Reference Include="UnityEngine.UI">

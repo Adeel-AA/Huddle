@@ -2,10 +2,12 @@
 using System.Data;
 using System.IO;
 using System;
+using System.Xml;
 
 public class SavedState {
 	private  DataTable table;
 	private DataSet ds;
+	private string savedRoute;
 
 
 
@@ -13,10 +15,28 @@ public class SavedState {
 
 
 	public SavedState () {
+		savedRoute = Environment.GetFolderPath (Environment.SpecialFolder.MyDocuments).Replace ("\\", "/");
+		savedRoute += "/HuddleSave/";
+		if (Directory.Exists (savedRoute)) {
+
+		} else {
+			createDir_File ();
+
+		}
 		table = new DataTable ();
 		ds = new DataSet ();
 		ds.Tables.Add (table);
 		CreateTable ();
+
+	}
+
+	private void createDir_File() {
+
+		Directory.CreateDirectory (savedRoute);
+
+
+
+		File.Create (savedRoute+"save.xml");
 
 	}
 	private void CreateTable(){
@@ -27,37 +47,48 @@ public class SavedState {
 	}
 
 	public void flushSave (string playerName,int level, int score) {
-		try {ds.ReadXml (Application.dataPath + "/SaveFiles/save.xml");
+		try {ds.ReadXml (savedRoute+"save.xml");
 			// clears table of any level duplicates 
+			for (int i = 0; i < ds.Tables [0].Rows.Count; i++) {
+				if (ds.Tables [0].Rows [i] ["Name"].ToString ().Equals (playerName) && ds.Tables [0].Rows [i] ["Level"].Equals (level)) {
+					ds.Tables [0].Rows [i].Delete ();
 
+				}
+
+			}
+		
+		
 		
 		}
-		}
 		catch (Exception e) {
-			File.Create (Application.dataPath + "/SaveFiles/save.xml");
-		}
 			
-	for (int i = 0; i < ds.Tables [0].Rows.Count; i++) {
-		if (ds.Tables [0].Rows [i] ["Name"].ToString ().Equals (playerName) && ds.Tables [0].Rows [i] ["Level"].Equals(level)) {
-			ds.Tables [0].Rows [i].Delete ();
 
 		}
+
+			
+
 			table.Rows.Add (playerName, level, score);
 			ds.Merge (table);
 
 
-		ds.WriteXml (Application.dataPath + "/SaveFiles/save.xml");
+		ds.WriteXml (savedRoute+ "save.xml");
 
 	}
 
+
 	// need to implement this too tiered today lol
-	public void readSave () {
+	public DataTable readSave () {
+		DataSet data = new DataSet ();
 		try {
-			ds.ReadXml (Application.dataPath + "/SaveFiles/save.xml");
-		}
+		data.ReadXml (savedRoute+"save.xml");
+		
+	}
+
 		catch (Exception e) {
-			File.Create (Application.dataPath + "SaveFiles/save.xml");
+			
 		}
+
+		return data.Tables [0];
 
 	}
 
