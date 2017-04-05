@@ -29,18 +29,19 @@ public class SavedState {
 	public void flushSave (string playerName,int level, int score) {
 		try {ds.ReadXml (Application.dataPath + "/SaveFiles/save.xml");
 			// clears table of any level duplicates 
-			for (int i = 0; i < ds.Tables [0].Rows.Count; i++) {
-				if (ds.Tables [0].Rows [i] ["Name"].ToString ().Equals (playerName) && ds.Tables [0].Rows [i] ["Level"].Equals(level)) {
-					ds.Tables [0].Rows [i].Delete ();
 
-				}
 		
 		}
 		}
 		catch (Exception e) {
+			File.Create (Application.dataPath + "/SaveFiles/save.xml");
+		}
+			
+	for (int i = 0; i < ds.Tables [0].Rows.Count; i++) {
+		if (ds.Tables [0].Rows [i] ["Name"].ToString ().Equals (playerName) && ds.Tables [0].Rows [i] ["Level"].Equals(level)) {
+			ds.Tables [0].Rows [i].Delete ();
 
 		}
-
 			table.Rows.Add (playerName, level, score);
 			ds.Merge (table);
 
@@ -51,6 +52,12 @@ public class SavedState {
 
 	// need to implement this too tiered today lol
 	public void readSave () {
+		try {
+			ds.ReadXml (Application.dataPath + "/SaveFiles/save.xml");
+		}
+		catch (Exception e) {
+			File.Create (Application.dataPath + "SaveFiles/save.xml");
+		}
 
 	}
 
