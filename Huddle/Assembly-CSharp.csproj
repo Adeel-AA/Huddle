@@ -63,12 +63,16 @@
      <Compile Include="Assets\Scripts\LoadBay_Red.cs" />
      <Compile Include="Assets\Scripts\LoadBay_Yellow.cs" />
      <Compile Include="Assets\Scripts\MusicControl.cs" />
+     <Compile Include="Assets\Scripts\Music_Control_WareHouse.cs" />
+     <Compile Include="Assets\Scripts\Music_Control_sheep.cs" />
+     <Compile Include="Assets\Scripts\On_Button_Click.cs" />
      <Compile Include="Assets\Scripts\OutOfBounds.cs" />
      <Compile Include="Assets\Scripts\PauseScene.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\Player1Script.cs" />
      <Compile Include="Assets\Scripts\Player2Script.cs" />
      <Compile Include="Assets\Scripts\SavedState.cs" />
+     <Compile Include="Assets\Scripts\Sfx_Timer.cs" />
      <Compile Include="Assets\Scripts\SheepBehave.cs" />
      <Compile Include="Assets\Scripts\SheepColide.cs" />
      <Compile Include="Assets\Scripts\StateRead.cs" />

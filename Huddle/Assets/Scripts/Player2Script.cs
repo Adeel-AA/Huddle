@@ -26,8 +26,8 @@ public class Player2Script : MonoBehaviour
 	void OnCollisionEnter2D(Collision2D box) {
 
 
-		if (box.gameObject.layer == 18 || box.gameObject.layer == 19) {
-			//Debug.Log ("the correct box is here");
+		if (box.gameObject.layer == 13 || box.gameObject.layer == 19) {
+			Debug.Log ("the correct box is here");
 			isboxStuck = true;
 			boxStuck = box;
 		}

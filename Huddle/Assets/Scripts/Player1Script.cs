@@ -29,13 +29,15 @@ public class Player1Script : MonoBehaviour
 	// drag object
 	void OnCollisionEnter2D(Collision2D box) {
 
-		 
-		if (box.gameObject.layer == 18 || box.gameObject.layer == 19) {
+
+		if (box.gameObject.layer == 13 || box.gameObject.layer == 19&&Input.GetKey(KeyCode.Space)) {
 				//Debug.Log ("the correct box is here");
 				isboxStuck = true;
 				boxStuck = box;
-        }
-		}
+			}
+
+	}
+
 
 
 }

@@ -25,7 +25,7 @@ public class Ui_Main_Menu : MonoBehaviour {
 	 * */
 	private void InitializeButtonsScene() {
 		play_button = GameObject.Find ("Play").GetComponent <Button> ();
-		options_button = GameObject.Find ("Options").GetComponent <Button> ();
+	//	options_button = GameObject.Find ("Options").GetComponent <Button> ();
 		quit_button = GameObject.Find ("Quit").GetComponent <Button> ();
 		tutorial_button = GameObject.Find ("Tutorial").GetComponent <Button> ();
 		continue_button = GameObject.Find ("Continue").GetComponent <Button> ();
@@ -37,8 +37,8 @@ public class Ui_Main_Menu : MonoBehaviour {
 	 * sets the the onlcick actions to the buttons in the current scene
 	 * */
 	private void setActionsToButtons() {
-		play_button.onClick.AddListener (() => change.ChangeSceneInt(current_Level));
-		options_button.onClick.AddListener (() => change.ChangeToScene("Options"));
+		play_button.onClick.AddListener (() => change.ChangeToScene("Level 1"));
+	//	options_button.onClick.AddListener (() => change.ChangeToScene("Options"));
 		quit_button.onClick.AddListener (() => change.QuitGame());
 		tutorial_button.onClick.AddListener (() => change.ChangeToScene("Tutorial"));
 		continue_button.onClick.AddListener (() => change.LevelSelect());

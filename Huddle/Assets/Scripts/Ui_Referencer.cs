@@ -14,6 +14,8 @@ public class Ui_Referencer : MonoBehaviour {
 	private Button restart;
 	private Button Level_Select;
 	private Button QuitToMainMenu;
+
+
 	private ChangeScene change;
 	private GameObject TutorialSprite;
 	private int gameMode; //
@@ -37,6 +39,7 @@ public class Ui_Referencer : MonoBehaviour {
 	 * */
 
 	private void fetchButtonsFromScene(){
+
 		pause = GameObject.FindGameObjectWithTag ("Pause").GetComponent<Button>();
 		resume = GameObject.Find ("resume").GetComponent<Button>();
 		restart = GameObject.Find ("restart").GetComponent<Button>();
@@ -83,6 +86,7 @@ public class Ui_Referencer : MonoBehaviour {
 	 * sets the references a.k.a event listeners  to the specific buttons in the scene
 	 * */
 	private void setAllReferencesToButtons(){
+		
 		pause.onClick.AddListener (() => p.pressSettings());
 		resume.onClick.AddListener (() => p.Resume());
 		restart.onClick.AddListener (() => change.ReloadScene ());
