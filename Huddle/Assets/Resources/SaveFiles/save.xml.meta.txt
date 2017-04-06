@@ -1,0 +1,8 @@
+fileFormatVersion: 2
+guid: 0e3d56b74e6571c4ca0043471a1d1916
+timeCreated: 1489598689
+licenseType: Free
+TextScriptImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
